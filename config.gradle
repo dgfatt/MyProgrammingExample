@@ -1,0 +1,196 @@
+ext.versions = [
+        // Library
+        mycommon            : '1.0.0',
+        mycustomerview      : '1.0.0',
+        mydataprovider      : '1.0.0',
+        mynetwork           : '1.0.0',
+
+        // base version : compile = target
+        complieSdk          : 28,
+        buildTools          : '28.0.3',
+        targetSdk           : 28,
+        minSdk              : 16,
+        versioncode         : 100,
+        versionname         : '1.0.0',
+
+        // view version
+        appcompat           : '1.0.2',
+        support             : '28.0.0',
+        constraint          : '1.1.3',
+        status_layout       : "1.0.4",
+        top_snackbar        : "1.1.1",
+        material_dialog     : "0.9.6.0",
+        recycler_adapter    : "2.9.42",
+        refresh_layout      : "1.1.0-alpha-14",
+        refresh_header      : "1.1.0-alpha-14",
+        pickerview          : "4.1.6",
+        progressdialog      : "V1.1.4",
+        materialedittext    : "2.1.4",
+        chart               : "v3.1.0-alpha",
+
+        //dependencies
+        gson                : '2.8.0',
+        fastjson            : '1.2.57',
+        okhttp              : '3.5.0',
+        retrifit2           : '2.1.0',
+        retrifitRxAdapter   : '1.0.0',
+        rxAndroid           : '2.0.1',
+        rxJava              : '2.0.2',
+        glide               : '3.7.0',
+        kotlin              : "1.2.51",
+        retrofit            : "2.3.0",
+        dagger              : "2.11",
+        multidex            : "1.0.2",
+        glide_compiler      : "4.8.0",
+        event_bus           : "3.1.1",
+        persistent_cookie   : "v1.0.1",
+        litepal             : "1.6.1",
+        toasty              : "1.1.3",
+        logger              : "2.2.0",
+        arouter_compiler    : "1.2.2",
+        arouter_api         : "1.4.1",
+        aspectjx            : "2.0.0",
+        aspectjrt           : "1.8.9",
+        permission          : "2.0.0-rc12",
+        rxeasyhttp          : "2.1.3",
+        butterknife         : "9.0.0-rc2",
+        butterknife_compiler: "9.0.0-rc2",
+        greendao            : "3.2.2",
+        luban               : "1.1.8",
+        utils               : "1.11.1",
+        rxbind              : "3.0.0-alpha1",
+        bugly               : "latest.release",
+        location            : "latest.integration",
+
+        //test
+        junit               : '4.12',
+        testJuint           : '1.1.0',
+        espressoCore        : '3.1.1',
+
+        // 本地仓库版本
+        coreui              : '1.0.1',
+        core                : "1.0.1",
+        hardware            : "1.0.0",
+]
+
+// 界面所需要的依赖
+ext.viewsDeps = [
+        appcompat          : "androidx.appcompat:appcompat:$versions.appcompat",
+        v7_cardview        : "com.android.support:cardview-v7:$versions.appcompat",
+        design             : "com.android.support:design:$versions.appcompat",
+        layoutConstraint   : "androidx.constraintlayout:constraintlayout:$versions.constraint",
+        appcompatV7        : "com.android.support:appcompat-v7:$versions.support",
+        supportAnnotations : "com.android.support:support-annotations:$versions.support",
+        supportV13         : "com.android.support:support-v13:$versions.support",
+        supportPercent     : "com.android.support:percent:$versions.support",
+        supportRecyclerview: "com.android.support:recyclerview-v7:$versions.support",
+        supportV4          : "com.android.support:support-v4:$versions.support",
+        supportCoreUtils   : "com.android.support:support-core-utils:$versions.support",
+        supportMultidex    : "com.android.support:multidex:$versions.multidex",
+
+        top_snackbar       : "com.androidadvance:topsnackbar:$versions.top_snackbar",
+        recycler_adapter   : "com.github.CymChad:BaseRecyclerViewAdapterHelper:$versions.recycler_adapter",
+        refresh_layout     : "com.scwang.smartrefresh:SmartRefreshLayout:$versions.refresh_layout",
+        refresh_header     : "com.scwang.smartrefresh:SmartRefreshHeader:$versions.refresh_header",
+        pickerview         : "com.contrarywind:Android-PickerView:$versions.pickerview",
+        chart              : "com.github.PhilJay:MPAndroidChart:$versions.chart",
+        status_layout      : "com.github.Bakumon:StatusLayoutManager:$versions.status_layout",
+        progressdialog     : "com.github.maning0303:MNProgressHUD:$versions.progressdialog",
+        materialedittext   : "com.rengwuxian.materialedittext:library:$versions.materialedittext",
+]
+
+// 非界面所需依赖
+ext.libsDeps = [
+        //ok http
+        okhttpLib                   : "com.squareup.okhttp3:okhttp:$versions.okhttp",
+        okhttpInterceptor           : "com.squareup.okhttp3:logging-interceptor:$versions.okhttp",
+
+        //retrofit2
+        retrifit2Lib                : "com.squareup.retrofit2:retrofit:$versions.retrifit2",
+        retrifit2Gson               : "com.squareup.retrofit2:converter-gson:$versions.retrifit2",
+        retrifit2Rxjava2Adapter     : "com.jakewharton.retrofit:retrofit2-rxjava2-adapter:$versions.retrifitRxAdapter",
+
+        //rx
+        rxAndroid                   : "io.reactivex.rxjava2:rxandroid:$versions.rxAndroid",
+        rxJava2                     : "io.reactivex.rxjava2:rxjava:$versions.rxJava",
+
+        // kotlin
+        kotlinStdlib                : "org.jetbrains.kotlin:kotlin-stdlib-jre7:$versions.kotlin",
+        kotlinTest                  : "org.jetbrains.kotlin:kotlin-test-junit:$versions.kotlin",
+        kotlinPlugin                : "org.jetbrains.kotlin:kotlin-gradle-plugin:$versions.kotlin",
+
+        // retrofit
+        retrofitRuntime             : "com.squareup.retrofit2:retrofit:$versions.retrofit",
+        retrofitAdapter             : "com.squareup.retrofit2:adapter-rxjava2:$versions.retrofi",
+        retrofitGson                : "com.squareup.retrofit2:converter-gson:$versions.retrofit",
+
+        // dagger
+        daggerRuntime               : "com.google.dagger:dagger:$versions.dagger",
+        daggerAndroid               : "com.google.dagger:dagger-android:$versions.dagger",
+        daggerAndroidSupport        : "com.google.dagger:dagger-android-support:$versions.dagger",
+        daggerCompiler              : "com.google.dagger:dagger-compiler:$versions.dagger",
+        daggerAndroidSupportCompiler: "com.google.dagger:dagger-android-processor:$versions.dagger",
+
+        gson                        : "com.google.code.gson:gson:$versions.gson",
+        fastjson                    : "com.alibaba:fastjson:$versions.fastjson",
+        glide                       : "com.github.bumptech.glide:glide:$versions.glide",
+        glide_compiler              : "com.github.bumptech.glide:compiler:$versions.glide_compiler",
+        event_bus                   : "org.greenrobot:eventbus:$versions.event_bus",
+        persistent_cookie           : "com.github.franmontiel:PersistentCookieJar:$versions.persistent_cookie",
+        permission                  : "com.yanzhenjie:permission:$versions.permission",
+        utils                       : "com.blankj:utilcode:$versions.utils",
+        litepal                     : "org.litepal.android:core:$versions.litepal",
+        toasty                      : "com.github.GrenderG:Toasty:$versions.toasty",
+        logger                      : "com.orhanobut:logger:$versions.logger",
+        arouter_api                 : "com.alibaba:arouter-api:$versions.arouter_api",
+        arouter_compiler            : "com.alibaba:arouter-compiler:$versions.arouter_compiler",
+        aspectjx                    : "com.hujiang.aspectjx:gradle-android-plugin-aspectjx:$versions.aspectjx",
+        aspectjrt                   : "org.aspectj:aspectjrt:$versions.aspectjrt",
+        rxeasyhttp                  : "com.zhouyou:rxeasyhttp:$versions.rxeasyhttp",
+        butterknife                 : "com.jakewharton:butterknife:$versions.butterknife",
+        butterknife_compiler        : "com.jakewharton:butterknife-compiler:$versions.butterknife_compiler",
+        greendao                    : "org.greenrobot:greendao:$versions.greendao",
+        luban                       : "top.zibin:Luban:$versions.luban",
+        rxbind                      : "com.jakewharton.rxbinding3:rxbinding:$versions.rxbind",
+        bugly                       : "com.tencent.bugly:crashreport:$versions.bugly",
+        location                    : "com.amap.api:location:$versions.location",
+
+]
+
+// 测试所需要的依赖
+ext.testsDeps = [
+        junit        : "junit:junit:$versions.junit",
+        testJuint    : "androidx.test.ext:junit:$versions.testJuint",
+        espressoCcore: "androidx.test.espresso:espresso-core:$versions.espressoCore"
+]
+
+// 项目所有的 app id
+ext.appIdsDeps = [
+        complete: "com.example.myprogrammingexample",
+        test    : "com.example.myprogrammingexample",
+        dev     : "com.example.myprogrammingexample",
+]
+
+// 本地仓库配置
+def LOCAL_SERVER_IP = "127.0.0.1"
+
+ext.artifactIds = [
+        coreui  : "coreui",
+        core    : "core",
+        hardware: "hardware"
+]
+
+ext.groupIds = [
+        core: "com.smartahc.android.core",
+]
+
+ext.urls = [
+        localUseMaven  : "http://" + LOCAL_SERVER_IP + ":8081/artifactory/smartahc-release/",
+        localUploadPath: "http://" + LOCAL_SERVER_IP + ":8081/artifactory"
+]
+
+ext.localRespos = [
+        repoName: "cores-release",
+        userName: "core",
+        password: "core"
+]

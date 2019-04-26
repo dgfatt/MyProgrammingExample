@@ -1,0 +1,2 @@
+include ':app', ':mydataprovider', ':mynetwork', ':mycustomerview', ':mycommon'
+rootProject.name='MyProgrammingExample'
