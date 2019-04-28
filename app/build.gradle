@@ -108,5 +108,8 @@ dependencies {
     androidTestImplementation testsDeps.testJuint
     androidTestImplementation testsDeps.espressoCcore
 
+    implementation project(':mycustomerview')
+    implementation project(':mycommon')
     implementation project(':mydataprovider')
+    implementation project(':mynetwork')
 }

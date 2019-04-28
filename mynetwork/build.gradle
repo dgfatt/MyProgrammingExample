@@ -46,5 +46,6 @@ dependencies {
     androidTestImplementation testsDeps.testJuint
     androidTestImplementation testsDeps.espressoCcore
 
-    api project(':mycommon')
+    implementation project(':mycommon')
+    implementation project(':mydataprovider')
 }
