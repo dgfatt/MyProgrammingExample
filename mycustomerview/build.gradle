@@ -20,6 +20,15 @@ android {
 
     }
 
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    lintOptions {
+        abortOnError false
+    }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -38,6 +47,4 @@ dependencies {
     androidTestImplementation testsDeps.espressoCcore
 
     implementation project(':mycommon')
-    api viewsDeps.layoutConstraint
-    api viewsDeps.appcompatV7
 }

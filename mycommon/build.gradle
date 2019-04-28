@@ -1,4 +1,5 @@
 apply plugin: 'com.android.library'
+apply plugin: 'com.jakewharton.butterknife'
 
 def appIdsDeps = rootProject.ext.appIdsDeps
 def versions = rootProject.ext.versions
@@ -20,6 +21,15 @@ android {
 
     }
 
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    lintOptions {
+        abortOnError false
+    }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -37,7 +47,23 @@ dependencies {
     androidTestImplementation testsDeps.testJuint
     androidTestImplementation testsDeps.espressoCcore
 
+    api viewsDeps.layoutConstraint
+    api viewsDeps.appcompatV7
+    api viewsDeps.supportV4
+    api viewsDeps.design
+    api viewsDeps.cardview
+    api viewsDeps.recycler_adapter
 
     api libsDeps.fastjson
+    api libsDeps.utils
+    api libsDeps.permission
+    api libsDeps.greendao
+    api libsDeps.GreenDaoUpgradeHelper
+    api libsDeps.butterknife
+    annotationProcessor libsDeps.butterknife_compiler
+    api libsDeps.event_bus
+    api libsDeps.bugly
+    debugImplementation libsDeps.leakcanaryDebug
+    releaseImplementation libsDeps.leakcanaryRelease
 
 }

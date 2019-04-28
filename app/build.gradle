@@ -6,12 +6,20 @@ def viewsDeps = rootProject.ext.viewsDeps
 def libsDeps = rootProject.ext.libsDeps
 def testsDeps = rootProject.ext.testsDeps
 
+static def releaseTime() {
+    return new Date().format("yyyyMMddHHmmss", TimeZone.getTimeZone("GMT+8:00"))
+}
+
+static def getProductName() {
+    return "ProgrammingExample"
+}
+
 android {
     compileSdkVersion versions.complieSdk
     buildToolsVersion versions.buildTools
 
     defaultConfig {
-        applicationId "com.example.myprogrammingexample"
+        applicationId appIdsDeps.complete
         minSdkVersion versions.minSdk
         targetSdkVersion versions.targetSdk
         versionCode versions.versioncode
@@ -19,10 +27,74 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
-    buildTypes {
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    lintOptions {
+        abortOnError false
+    }
+
+    signingConfigs {
+        debug {
+            storeFile file(DEBUG_STORE_FILE)
+            storePassword DEBUG_STORE_PASSWORD
+            keyAlias DEBUG_KEY_ALIAS
+            keyPassword DEBUG_KEY_PASSWORD
+        }
+
         release {
+            storeFile file(RELEASE_STORE_FILE)
+            storePassword RELEASE_STORE_PASSWORD
+            keyAlias RELEASE_KEY_ALIAS
+            keyPassword RELEASE_KEY_PASSWORD
+        }
+    }
+
+    buildTypes {
+        debug {
+            // 显示Log
+            buildConfigField "boolean", "LOG_DEBUG", "true"
+            // 混淆
             minifyEnabled false
+            // Zipalign优化
+            zipAlignEnabled false
+            // 移除无用的resource文件
+            shrinkResources false
+            // 前一部分代表系统默认的android程序的混淆文件，该文件已经包含了基本的混淆声明
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+
+        release {
+            // 不显示Log
+            buildConfigField "boolean", "LOG_DEBUG", "false"
+            //混淆
+            minifyEnabled true
+            //Zipalign优化
+            zipAlignEnabled true
+            // 移除无用的resource文件
+            shrinkResources true
+            //前一部分代表系统默认的android程序的混淆文件，该文件已经包含了基本的混淆声明
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    //修改生成的apk名字
+    applicationVariants.all { variant ->
+        variant.outputs.all { output ->
+            def name = getProductName()
+            def formattedDate = releaseTime()
+            def SEP = "_"
+            def buildType = variant.buildType.name
+            def version = defaultConfig.versionName
+            if (buildType == 'release') {
+                outputFileName = name + SEP + "V" + version + SEP + formattedDate + SEP + buildType + '.apk'
+            } else if (buildType == 'debug') {
+                outputFileName = name + SEP + "V" + version + SEP + formattedDate + SEP + buildType + '.apk'
+            } else {
+                outputFileName = name + SEP + "V" + version + SEP + formattedDate + '.apk'
+            }
         }
     }
 
@@ -37,5 +109,4 @@ dependencies {
     androidTestImplementation testsDeps.espressoCcore
 
     implementation project(':mydataprovider')
-    implementation project(':mycustomerview')
 }

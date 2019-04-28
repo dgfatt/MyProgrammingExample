@@ -1,4 +1,5 @@
 apply plugin: 'com.android.library'
+apply plugin: 'org.greenrobot.greendao'
 
 def appIdsDeps = rootProject.ext.appIdsDeps
 def versions = rootProject.ext.versions
@@ -20,6 +21,15 @@ android {
 
     }
 
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    lintOptions {
+        abortOnError false
+    }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -27,6 +37,19 @@ android {
         }
     }
 
+}
+
+greendao {
+    // 数据库版本号
+    schemaVersion 1
+    // 设置DaoMaster、DaoSession、Dao 包名
+    daoPackage 'com.example.mydataprovider.greenDao.dao'
+    // 设置DaoMaster、DaoSession、Dao目录
+    targetGenDir 'src/main/java'
+    // 设置为true以自动生成单元测试。
+    generateTests true
+    // 应存储生成的单元测试的基本目录。默认为 src / androidTest / java。
+//    targetGenDirTests 'src/main/java'
 }
 
 dependencies {
